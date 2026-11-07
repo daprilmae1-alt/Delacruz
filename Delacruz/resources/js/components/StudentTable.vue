@@ -2,6 +2,7 @@
 defineProps({
     students: { type: Array, default: () => [] },
     loading: Boolean,
+    canManage: Boolean,
 });
 defineEmits(['edit', 'delete']);
 </script>
@@ -21,7 +22,7 @@ defineEmits(['edit', 'delete']);
                     <th>Email</th>
                     <th>Course</th>
                     <th>Year</th>
-                    <th>Actions</th>
+                    <th v-if="canManage">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +32,7 @@ defineEmits(['edit', 'delete']);
                     <td>{{ s.email }}</td>
                     <td>{{ s.course }}</td>
                     <td>{{ s.Year_level }}</td>
-                    <td class="row-actions">
+                    <td v-if="canManage" class="row-actions">
                         <button class="btn small" @click="$emit('edit', s)">Edit</button>
                         <button class="btn small danger" @click="$emit('delete', s)">Delete</button>
                     </td>
