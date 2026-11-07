@@ -13,7 +13,6 @@ const form = reactive(emptyForm());
 
 const isEditing = computed(() => !!props.student);
 
-// When a student is chosen for editing, copy its values into the form
 watch(
     () => props.student,
     (s) => {

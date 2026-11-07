@@ -18,7 +18,6 @@ const notify = (message, type = 'success') => {
     setTimeout(() => (alert.value.message = ''), 4000);
 };
 
-// READ
 const fetchStudents = async () => {
     loading.value = true;
     try {
@@ -31,7 +30,6 @@ const fetchStudents = async () => {
     }
 };
 
-// CREATE + UPDATE
 const saveStudent = async (payload) => {
     saving.value = true;
     errors.value = {};
@@ -56,7 +54,6 @@ const saveStudent = async (payload) => {
     }
 };
 
-// DELETE
 const deleteStudent = async (student) => {
     if (!confirm(`Delete ${student.firstname}?`)) return;
     try {
